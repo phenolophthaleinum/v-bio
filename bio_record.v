@@ -1,3 +1,4 @@
+// Module bio implements Record and Sequence management
 module bio
 
 import os
