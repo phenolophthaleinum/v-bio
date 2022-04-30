@@ -2,7 +2,7 @@ module bio
 
 
 pub struct RangeInt {
-	start int = 0
+	start int
 	stop int
 	step int = 1
 }

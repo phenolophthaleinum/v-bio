@@ -84,6 +84,7 @@ pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool)
 			aa << stop_sign
 		}
 	}
+	return aa.join("")
 }
 
 // Returns ugapped sequence as a string/Seq. The gap character must be provided.
