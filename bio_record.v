@@ -16,6 +16,16 @@ pub mut:
 	seq         Seq
 }
 
+pub struct CodonTable
+{
+pub:
+	id int
+	name string
+	table map[string]string
+	start_codons []string
+	stop_codons []string
+}
+
 // Returns complement sequence as a string/Seq.
 // Example: bio.Seq('ATAGCAT').complement() // prints: 'TATCGTA'
 pub fn (mut s Seq) complement() string {
@@ -44,6 +54,36 @@ pub fn (mut s Seq) reverse_complement() string {
 // Example: bio.Seq('ATAGCAT').transcribe() // prints: 'AUAGCAU'
 pub fn (mut s Seq) transcribe() string {
 	return s.replace('T', 'U')
+}
+
+pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool) string 
+{
+	seq := s.to_upper()
+	n := seq.len
+	mut aa := []string{}
+
+	// check for ambiguity
+	duals := c_table.stop_codons.filter(it in c_table.table)
+	if duals.len > 0 {
+		if to_stop == true {
+			panic("Translation Error: cannot use 'to_stop=true' with this table since it contains following ambiguous codons: ${duals}. These can be both STOP and an amino acid.")
+		}
+		println("Translation Warning: this table contains following ambiguous codons: ${duals}. These can be both STOP and an amino acid but will be translated as amino acid.")
+	}
+
+	for i in int_range(start:0, stop: n - n % 3, step: 3)
+	{
+		c = seq[i..i + 3]
+		if c in c_table.table {
+			aa << c_table.table[c]
+		}
+		else {
+			if to_stop == true {
+				break
+			}
+			aa << stop_sign
+		}
+	}
 }
 
 // Returns ugapped sequence as a string/Seq. The gap character must be provided.
