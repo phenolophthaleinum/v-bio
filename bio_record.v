@@ -73,7 +73,7 @@ pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool)
 
 	for i in int_range(start:0, stop: n - n % 3, step: 3)
 	{
-		c = seq[i..i + 3]
+		c := seq[i..i + 3]
 		if c in c_table.table {
 			aa << c_table.table[c]
 		}
