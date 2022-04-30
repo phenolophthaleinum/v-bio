@@ -17,7 +17,7 @@ pub mut:
 }
 
 // Returns complement sequence as a string/Seq.
-// Example: 'ATAGCAT' -> 'TATCGTA'
+// Example: bio.Seq('ATAGCAT').complement() // prints: 'TATCGTA'
 pub fn (mut s Seq) complement() string {
 	complements := {
 		'A': 'T'
@@ -35,19 +35,19 @@ pub fn (mut s Seq) complement() string {
 }
 
 // Returns reverse complement sequence as a string/Seq.
-// Example: 'ATAGCAT' -> 'ATGCTAT'
+// Example: bio.Seq('ATAGCAT').reverse_complement() // prints: 'ATGCTAT'
 pub fn (mut s Seq) reverse_complement() string {
 	return s.complement().reverse()
 }
 
 // Returns transcribed sequence as a string/Seq.
-// Example: 'ATAGCAT' -> 'AUAGCAU'
+// Example: bio.Seq('ATAGCAT').transcribe() // prints: 'AUAGCAU'
 pub fn (mut s Seq) transcribe() string {
 	return s.replace('T', 'U')
 }
 
 // Returns ugapped sequence as a string/Seq. The gap character must be provided.
-// Example: 'ATA--TC-A' -> 'ATATCA'
+// Example: bio.Seq('ATA--TC-A').ungap('-') // prints: 'ATATCA'
 pub fn (mut s Seq) ungap(gap string) string {
 	return s.replace(gap, '')
 }
