@@ -58,8 +58,8 @@ pub fn (mut s Seq) transcribe() string {
 
 pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool, cds bool, gap string) string 
 {
-	seq := s.to_upper()
-	n := seq.len
+	mut seq := s.to_upper()
+	mut n := seq.len
 	mut aa := []string{}
 
 	// check for ambiguity
