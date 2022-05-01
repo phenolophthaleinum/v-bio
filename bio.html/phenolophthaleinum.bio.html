@@ -46,27 +46,37 @@
       <nav class="search hidden"></nav>
       <nav class="content hidden">
         <ul>
-          <li class="open"><a href="#parse_fasta2">fn parse_fasta2</a>        <ul>
+          <li class="open"><a href="#int_range">fn int_range</a>        <ul>
 </ul>
 </li>
-<li class="open"><a href="#to_dict">fn to_dict</a>        <ul>
+<li class="open"><a href="#parse_fasta">fn parse_fasta</a>        <ul>
+</ul>
+</li>
+<li class="open"><a href="#parse_fasta2">fn parse_fasta2</a>        <ul>
 </ul>
 </li>
 <li class="open"><a href="#safe_join">fn safe_join</a>        <ul>
 </ul>
 </li>
-<li class="open"><a href="#parse_fasta">fn parse_fasta</a>        <ul>
+<li class="open"><a href="#to_dict">fn to_dict</a>        <ul>
 </ul>
 </li>
 <li class="open"><a href="#Seq.complement">type Seq</a>        <ul>
 <li><a href="#Seq.complement">fn complement</a></li>
 <li><a href="#Seq.reverse_complement">fn reverse_complement</a></li>
 <li><a href="#Seq.transcribe">fn transcribe</a></li>
+<li><a href="#Seq.translate">fn translate</a></li>
 <li><a href="#Seq.ungap">fn ungap</a></li>
 <li><a href="#Seq.join">fn join</a></li>
 </ul>
 </li>
 <li class="open"><a href="#Record">struct Record</a>        <ul>
+</ul>
+</li>
+<li class="open"><a href="#RangeInt">struct RangeInt</a>        <ul>
+</ul>
+</li>
+<li class="open"><a href="#CodonTable">struct CodonTable</a>        <ul>
 </ul>
 </li>
 
@@ -81,28 +91,33 @@
 
 </section>
 
+						<section id="int_range" class="doc-node">
+							<div class="title"><h2>fn int_range <a href="#int_range">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/utils.v#L17"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">int_range</span><span class="token punctuation">(</span>range RangeInt<span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span></code></pre>
+<p>pub struct RangeFloat { 	start f32 = 1.0 	stop f32  	step f32 = 1.0 }</p>
+
+</section>
+						<section id="parse_fasta" class="doc-node">
+							<div class="title"><h2>fn parse_fasta <a href="#parse_fasta">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L123"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">parse_fasta</span><span class="token punctuation">(</span>filename <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>Record</code></pre>
+
+
+</section>
 						<section id="parse_fasta2" class="doc-node">
-							<div class="title"><h2>fn parse_fasta2 <a href="#parse_fasta2">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L132"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">parse_fasta2</span><span class="token punctuation">(</span>filename <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>Record</code></pre>
+							<div class="title"><h2>fn parse_fasta2 <a href="#parse_fasta2">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L173"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">parse_fasta2</span><span class="token punctuation">(</span>filename <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>Record</code></pre>
+
+
+</section>
+						<section id="safe_join" class="doc-node">
+							<div class="title"><h2>fn safe_join <a href="#safe_join">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L119"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">safe_join</span><span class="token punctuation">(</span>list <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">,</span> joiner <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">?</span><span class="token builtin">string</span></code></pre>
 
 
 </section>
 						<section id="to_dict" class="doc-node">
-							<div class="title"><h2>fn to_dict <a href="#to_dict">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L66"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">to_dict</span><span class="token punctuation">(</span>records <span class="token punctuation">[</span><span class="token punctuation">]</span>Record<span class="token punctuation">)</span> <span class="token builtin">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span>Record</code></pre>
+							<div class="title"><h2>fn to_dict <a href="#to_dict">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L107"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">to_dict</span><span class="token punctuation">(</span>records <span class="token punctuation">[</span><span class="token punctuation">]</span>Record<span class="token punctuation">)</span> <span class="token builtin">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span>Record</code></pre>
 <p>Maps list of Records into dictionary.</p>
 
 </section>
-						<section id="safe_join" class="doc-node">
-							<div class="title"><h2>fn safe_join <a href="#safe_join">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L78"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">safe_join</span><span class="token punctuation">(</span>list <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">,</span> joiner <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">?</span><span class="token builtin">string</span></code></pre>
-
-
-</section>
-						<section id="parse_fasta" class="doc-node">
-							<div class="title"><h2>fn parse_fasta <a href="#parse_fasta">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L82"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token function">parse_fasta</span><span class="token punctuation">(</span>filename <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>Record</code></pre>
-
-
-</section>
 						<section id="Seq.complement" class="doc-node">
-							<div class="title"><h2>fn (Seq) complement <a href="#Seq.complement">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L21"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">complement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
+							<div class="title"><h2>fn (Seq) complement <a href="#Seq.complement">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L31"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">complement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
 <p>Returns complement sequence as a string/Seq.</p>
 
 <section class="doc-node examples"><h4>Example</h4>
@@ -110,7 +125,7 @@
 </section>
 </section>
 						<section id="Seq.reverse_complement" class="doc-node">
-							<div class="title"><h2>fn (Seq) reverse_complement <a href="#Seq.reverse_complement">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L39"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">reverse_complement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
+							<div class="title"><h2>fn (Seq) reverse_complement <a href="#Seq.reverse_complement">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L49"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">reverse_complement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
 <p>Returns reverse complement sequence as a string/Seq.</p>
 
 <section class="doc-node examples"><h4>Example</h4>
@@ -118,15 +133,20 @@
 </section>
 </section>
 						<section id="Seq.transcribe" class="doc-node">
-							<div class="title"><h2>fn (Seq) transcribe <a href="#Seq.transcribe">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L45"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">transcribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
+							<div class="title"><h2>fn (Seq) transcribe <a href="#Seq.transcribe">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L55"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">transcribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
 <p>Returns transcribed sequence as a string/Seq.</p>
 
 <section class="doc-node examples"><h4>Example</h4>
 <pre><code class="language-v">bio<span class="token punctuation">.</span><span class="token function">Seq</span><span class="token punctuation">(</span><span class="token string">'ATAGCAT'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">transcribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// prints: 'AUAGCAU'</span></code></pre>
 </section>
 </section>
+						<section id="Seq.translate" class="doc-node">
+							<div class="title"><h2>fn (Seq) translate <a href="#Seq.translate">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L59"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">translate</span><span class="token punctuation">(</span>c_table CodonTable<span class="token punctuation">,</span> stop_sign <span class="token builtin">string</span><span class="token punctuation">,</span> to_stop <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
+
+
+</section>
 						<section id="Seq.ungap" class="doc-node">
-							<div class="title"><h2>fn (Seq) ungap <a href="#Seq.ungap">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L51"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">ungap</span><span class="token punctuation">(</span>gap <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
+							<div class="title"><h2>fn (Seq) ungap <a href="#Seq.ungap">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L92"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span><span class="token keyword">mut</span> s Seq<span class="token punctuation">)</span> <span class="token function">ungap</span><span class="token punctuation">(</span>gap <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
 <p>Returns ugapped sequence as a string/Seq. The gap character must be provided.</p>
 
 <section class="doc-node examples"><h4>Example</h4>
@@ -134,7 +154,7 @@
 </section>
 </section>
 						<section id="Seq.join" class="doc-node">
-							<div class="title"><h2>fn (Seq) join <a href="#Seq.join">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L57"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span>s Seq<span class="token punctuation">)</span> <span class="token function">join</span><span class="token punctuation">(</span>seqs <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
+							<div class="title"><h2>fn (Seq) join <a href="#Seq.join">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/C:%5CUsers%5CMaciej%5C.vmodules%5Cphenolophthaleinum%5Cbio%5Cbio_record.v#L98"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">fn</span> <span class="token punctuation">(</span>s Seq<span class="token punctuation">)</span> <span class="token function">join</span><span class="token punctuation">(</span>seqs <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span></code></pre>
 <p>Returns merged sequences, spaced by the sequence from which the function was called.</p>
 
 <section class="doc-node examples"><h4>Example</h4>
@@ -153,9 +173,30 @@
 description of a record and holds Seq object.</p>
 
 </section>
+						<section id="RangeInt" class="doc-node">
+							<div class="title"><h2>struct RangeInt <a href="#RangeInt">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/utils.v#L4"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">struct</span> <span class="token symbol">RangeInt</span> <span class="token punctuation">{</span>
+	start <span class="token builtin">int</span>
+	stop  <span class="token builtin">int</span>
+	step  <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span></code></pre>
+
+
+</section>
+						<section id="CodonTable" class="doc-node">
+							<div class="title"><h2>struct CodonTable <a href="#CodonTable">#</a></h2><a class="link" rel="noreferrer" target="_blank" href="https://github.com/phenolophthaleinum/v-bio/blob/master/bio_record.v#L19"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></div><pre class="signature"><code><span class="token keyword">struct</span> <span class="token symbol">CodonTable</span> <span class="token punctuation">{</span>
+<span class="token keyword">pub</span><span class="token punctuation">:</span>
+	id           <span class="token builtin">int</span>
+	name         <span class="token builtin">string</span>
+	table        <span class="token builtin">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+	start_codons <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+	stop_codons  <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+<span class="token punctuation">}</span></code></pre>
+
+
+</section>
 
           <div class="footer">
-            Powered by vdoc. Generated on: 30 Apr 2022 15:19:22
+            Powered by vdoc. Generated on: 1 May 2022 00:06:39
           </div>
         </div>
         

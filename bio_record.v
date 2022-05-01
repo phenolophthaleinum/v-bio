@@ -56,7 +56,7 @@ pub fn (mut s Seq) transcribe() string {
 	return s.replace('T', 'U')
 }
 
-pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool) string 
+pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool, cds bool, gap string) string 
 {
 	seq := s.to_upper()
 	n := seq.len
@@ -71,6 +71,29 @@ pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool)
 		println("Translation Warning: this table contains following ambiguous codons: ${duals}. These can be both STOP and an amino acid but will be translated as amino acid.")
 	}
 
+	// cds checks
+	if cds == true {
+		if seq[0..3] !in c_table.start_codons {
+			panic("Translation Error: first codon ${seq[0..3]} is not a start codon.")
+		}
+		if n % 3 != 0 {
+			panic("Translation Error: sequence of a length ${n} is not a multiple of three.")
+		}
+		if seq[n - 3..n] !in c_table.stop_codons {
+			panic("Translation Error: last codon ${seq[0..3]} is not a stop codon.")
+		}
+		seq = seq[3..n - 3]
+		n -= 6
+		aa << 'M'
+	}
+
+	// gap checks
+	if gap != '' {
+		if gap.len > 1 {
+			panic("Translation Error: gap character must be a single character.")
+		}
+	}
+
 	for i in int_range(start:0, stop: n - n % 3, step: 3)
 	{
 		c := seq[i..i + 3]
@@ -78,10 +101,21 @@ pub fn (mut s Seq) translate(c_table CodonTable, stop_sign string, to_stop bool)
 			aa << c_table.table[c]
 		}
 		else {
-			if to_stop == true {
-				break
+			if c in c_table.stop_codons {
+				if cds == true {
+					panic("Translation Error: additional stop codon in frame.")
+				}
+				if to_stop == true {
+					break
+				}
+				aa << stop_sign
 			}
-			aa << stop_sign
+			else if gap != '' && c == gap.repeat(3) {
+				aa << gap
+			}
+			else {
+				panic("Translation Error: codon is invalid according to used codon table.")
+			}
 		}
 	}
 	return aa.join("")
